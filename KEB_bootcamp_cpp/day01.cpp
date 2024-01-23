@@ -3,34 +3,17 @@ using namespace std;
 
 int main() {
 
-    //상수 정의
-    const unsigned int pennyValue = 1;
-    const unsigned int nickelValue = 5;
-    const unsigned int dimeValue = 10;
-    const unsigned int quarterValue = 25;
-    const unsigned int dollarValue = 100;
+	//char 자료형의 변수 선언과 초기화
+	char first = 'A';
+	// char first = 'A' + 2; //이렇게 하면 67이 되어 C가 출력된다(아스키코드값)
+	char second = 65;
+	char third = 'B';
+	char fourth = 66;
+	//값 출력
+	cout << "first의 값 : " << first << endl;
+	cout << "second의 값 : " << second << endl;
+	cout << "third의 값 : " << third << endl;
+	cout << "fourth의 값 : " << fourth << endl;
 
-    //변수 정의(각 코인의 수)
-    unsigned int pennis;
-    unsigned int nickels;
-    unsigned int dimes;
-    unsigned int quarters;
-    unsigned int dollars;
-    //전체 값을 나타내는 변수 선언
-    unsigned long totalValue;
-
-    //코인 입력받기
-    cout << "페니의 수 : ";
-    cin >> pennis;
-    cout << "니켈의 수 : ";
-    cin >> nickels;
-    cout << "다임의 수 : ";
-    cin >> dimes;
-    cout << "쿼터의 수 : ";
-    cin >> quarters;
-    cout << "달러의 수 : ";
-    cin >> dollars;
-    totalValue = pennis * pennyValue + nickels * nickelValue + dimes * dimeValue + quarters * quarterValue + dollars * dollarValue;
-    cout << "전체값은 " << totalValue << "입니다. ";
-    return 0;
+	return 0;
 }
