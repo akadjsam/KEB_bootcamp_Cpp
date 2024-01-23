@@ -3,17 +3,8 @@ using namespace std;
 
 int main() {
 
-	//char 자료형의 변수 선언과 초기화
-	char first = 'A';
-	// char first = 'A' + 2; //이렇게 하면 67이 되어 C가 출력된다(아스키코드값)
-	char second = 65;
-	char third = 'B';
-	char fourth = 66;
-	//값 출력
-	cout << "first의 값 : " << first << endl;
-	cout << "second의 값 : " << second << endl;
-	cout << "third의 값 : " << third << endl;
-	cout << "fourth의 값 : " << fourth << endl;
-    cout << "fourth의 값 : " << fourth << endl;
+	cout << "\"안녕하세요 \"를 사용하였습니다.\"\n"; //\"는 큰 따옴표 표시, \n과 같은 기본 표현은 파이썬이나 C언어와 비슷
+	cout << "\t안녕하세요";
+
 	return 0;
 }
