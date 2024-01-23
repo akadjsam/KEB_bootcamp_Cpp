@@ -2,27 +2,35 @@
 using namespace std;
 
 int main() {
-    int i0;
-    int i1;
-    int sum;
 
-    int ia=0;
-    double a;
-    const double PI = 3.14; //앞에 const를 붙이면 상수가 된다. 즉 값의 변경 불가능.
+    //상수 정의
+    const unsigned int pennyValue = 1;
+    const unsigned int nickelValue = 5;
+    const unsigned int dimeValue = 10;
+    const unsigned int quarterValue = 25;
+    const unsigned int dollarValue = 100;
 
-    cout << "i0값을 입력하세요 : ";
-    cin >> i0;
-    cout << "당신은 i0를 위해서 : " << i0 << "를 입력했어요" << endl;
+    //변수 정의(각 코인의 수)
+    unsigned int pennis;
+    unsigned int nickels;
+    unsigned int dimes;
+    unsigned int quarters;
+    unsigned int dollars;
+    //전체 값을 나타내는 변수 선언
+    unsigned long totalValue;
 
-    cout << "i0값을 입력하세요 : ";
-    cin >> i1;
-    cout << "당신은 i1를 위해서 : " << i1 << "를 입력했어요" << endl;
-    sum = i0 + 28;
-
-    a = static_cast<double>(i0) / static_cast<double>(i1);
-    a = static_cast<double>(i0) / static_cast<double>(i1);
-
-    cout << "a : " << a << endl;
-    cout << "a/PI : " << a/PI << endl;
-    cout << "ia : " << ia << endl;
+    //코인 입력받기
+    cout << "페니의 수 : ";
+    cin >> pennis;
+    cout << "니켈의 수 : ";
+    cin >> nickels;
+    cout << "다임의 수 : ";
+    cin >> dimes;
+    cout << "쿼터의 수 : ";
+    cin >> quarters;
+    cout << "달러의 수 : ";
+    cin >> dollars;
+    totalValue = pennis * pennyValue + nickels * nickelValue + dimes * dimeValue + quarters * quarterValue + dollars * dollarValue;
+    cout << "전체값은 " << totalValue << "입니다. ";
+    return 0;
 }
