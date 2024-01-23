@@ -14,6 +14,6 @@ int main() {
 	cout << "second의 값 : " << second << endl;
 	cout << "third의 값 : " << third << endl;
 	cout << "fourth의 값 : " << fourth << endl;
-
+    cout << "fourth의 값 : " << fourth << endl;
 	return 0;
 }
