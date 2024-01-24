@@ -3,12 +3,14 @@ using namespace std;
 
 int main() {
 	int a = 1234;
-	double b = 123111114.1234;
-	cout << oct << a << endl;
-	cout << hex << a << endl;
-	cout << showbase << hex << a << endl;
-
-	cout << showpoint << b << endl;
-	cout << b << scientific;
-	return 0;
+	// if (a = 0) //a의 값이 0가 대입되어 false
+	// {
+	// 	cout << a << endl;
+	// }
+	if(a=5){ //a의 값이 5가 대입되어 true
+		cout << a << endl;
+	}
+	if(a==1234){ //a의 값이 5이므로 false
+		cout << 9999 << endl;
+	}
 }
