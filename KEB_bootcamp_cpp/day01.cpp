@@ -2,23 +2,12 @@
 using namespace std;
 
 int main() {
-	int a;
+	int a,b;
+	int result;
 	cout << "input : ";
 	cin >> a;
+	cout << "input : ";
+	cin >> b;
 
-	switch (a)
-	{
-	case 1:
-		cout << 1 << endl; //break가 없으면 다음 case 실행.
-		break;
-	case 2:
-		cout << 2 << endl;
-		break;
-	case 3:
-		cout << 3 << endl;
-		break;
-	default:
-		cout << "none" << endl;
-		break;
-	}
+	result = a>b ? a:b // 더 큰수의 값을 출력. true면 a, false면 b 출력
 }
