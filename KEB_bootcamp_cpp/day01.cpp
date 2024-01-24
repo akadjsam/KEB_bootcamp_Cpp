@@ -2,16 +2,23 @@
 using namespace std;
 
 int main() {
-    int a;
-    cout << "input : ";
-    cin >> a;
+	int a;
+	cout << "input : ";
+	cin >> a;
 
-    if ((a % 400 == 0) || ((a % 4 == 0) && (a % 100 != 0))) { //()기호를 잘 써주어야 한다.
-        cout << "윤년!";
-    }
-    else {
-        cout << "평년";
-    }
-
-    return 0;
+	switch (a)
+	{
+	case 1:
+		cout << 1 << endl; //break가 없으면 다음 case 실행.
+		break;
+	case 2:
+		cout << 2 << endl;
+		break;
+	case 3:
+		cout << 3 << endl;
+		break;
+	default:
+		cout << "none" << endl;
+		break;
+	}
 }
