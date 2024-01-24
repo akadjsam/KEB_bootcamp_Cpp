@@ -1,10 +1,14 @@
-#include <iostream> //cpp는 오버,언더플로우에 대한 경고를 출력하지만 오류메세지는 출력 x
+#include <iostream> 
 using namespace std;
 
 int main() {
-	bool a = true;
-	cout << a << endl; //true 이므로 1로 출력
-	cout << boolalpha << a << endl; //boolalpha 사용하면 boolean으로 출력
+	int a = 1234;
+	double b = 123111114.1234;
+	cout << oct << a << endl;
+	cout << hex << a << endl;
+	cout << showbase << hex << a << endl;
 
+	cout << showpoint << b << endl;
+	cout << b << scientific;
 	return 0;
 }
