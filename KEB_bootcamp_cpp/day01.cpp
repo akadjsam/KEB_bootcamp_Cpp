@@ -1,105 +1,206 @@
 // #include <iostream> 
-// using namespace std;
-// //p.138
-// int main() {
-// 	double a;
-// 	int i;
-// 	double j;
-// 	cout << "input : ";
-// 	cin >> a;
-// 	i = static_cast<int>(a);
-// 	j = a - i;
 
-// 	cout << "output : " << a << ", " << i << ", " << j << endl;
-
-// 	return 0;
-// }
-
-// #include <iostream> 
 // using namespace std;
 // int main() {
-// 	int a;
-// 	int b;
-// 	cout << "input : ";
-// 	cin >> a;
-// 	b = a%10;
-// 	cout << "output : " << a << ", " << b<< endl;
-// 	cout << "output : " << sizeof(a);
+// 	int list[3];
+// 	int maxlevel;
+// 	int minlevel;
 
-// 	return 0;
-// }
-
-// #include <iostream> 
-// #include <cmath>
-// #include <string>
-// using namespace std;
-// int main() {
-//     string a;
-//     cout << "input : ";
-//     cin >> a;
-
-//     int b = stoi(a);
-//     cout << "output : " << a.size() << endl << endl;
-
-//     for (int i = 1; i <= a.size(); i++) {
-//         int digit = b % 10;
-//         cout << "output : " << digit << ", " << pow(1, i) << endl;
-//         b /= 10;
-//     }
-//     return 0;
-// }
-
-// #include <iostream>  //초 입력시 시 분 초 로 나타내기
-// using namespace std;
-// int main() {
-// 	int sec;
-// 	int min;
-// 	int hour;
-// 	cout << "input : ";
-// 	cin >> sec;
-// 	hour = sec / 3600;
-// 	min = (sec - (hour* 3600)) / 60;
-// 	sec = (sec - (hour * 3600)) - (min * 60);
-
-// 	cout << "output : " << hour << ", " << min << ", " << sec << endl;
-
-// 	return 0;
-// }
-
-
-// #include <iostream> //3개의 입력, 합,평균,분산 계산하기
-// #include <iomanip>
-// using namespace std;
-// int main() {
-// 	int a;
-// 	int b;
-// 	int c;
 // 	int sum;
 // 	double avr;
 
-// 	double d;
-// 	double e;
-// 	double f;
+// 	for (int i = 0; i < 3; i++) {
+// 		cout << "input : ";
+// 		cin >> list[i];
+// 	}
 
-// 	cout << "input : ";
-// 	cin >> a;
-// 	cout << "input : ";
-// 	cin >> b;
-// 	cout << "input : ";
-// 	cin >> c;
+// 	//max
+// 	if ((list[0] > list[1]) && (list[0] > list[2])) {
+// 		cout << list[0] << " max!" << endl;
+// 		maxlevel = 0;
+// 	}
+// 	else if ((list[1] > list[0]) && (list[1] > list[2]))
+// 	{
+// 		cout << list[1] << " max!" << endl;
+// 		maxlevel = 1;
+// 	}
+// 	else {
+// 		cout << list[2] << " max!" << endl;
+// 		maxlevel = 2;
+// 	}
 
-// 	sum = a + b + c;
-// 	avr = static_cast<double>(sum) / 3;
-
-// 	d = a - avr;
-// 	e = b - avr;
-// 	f = c - avr;
-// 	cout << fixed << setprecision(2);
-// 	cout << sum << endl;
-// 	cout << avr << endl;
-// 	cout << d << endl;
-// 	cout << e << endl;
-// 	cout << f << endl;
+// 	//min
+// 	if ((list[0] < list[1]) && (list[0] < list[2])) {
+// 		cout << list[0] << " min!" << endl;
+// 		minlevel = 0;
+// 	}
+// 	else if ((list[1] < list[0]) && (list[1] < list[2]))
+// 	{
+// 		cout << list[1] << " min!" << endl;
+// 		minlevel = 1;
+// 	}
+// 	else {
+// 		cout << list[2] << " min!" << endl;
+// 		minlevel = 2;
+// 	}
+// 	sum = list[minlevel] + list[maxlevel];
+// 	if ((sum % 2) == 1) {
+// 		sum += 1;
+// 	}
+// 	avr = sum / 2;
+// 	cout << avr << " avr!";
 
 // 	return 0;
+
 // }
+
+// #include <iostream> 
+
+// using namespace std;
+// int main() {
+// 	int list[3];
+// 	int maxlevel;
+// 	int minlevel;
+
+// 	int sum;
+// 	double avr;
+
+// 	for (int i = 0; i < 3; i++) {
+// 		cout << "input : ";
+// 		cin >> list[i];
+// 	}
+
+// 	//max
+// 	if ((list[0] > list[1]) && (list[0] > list[2])) {
+// 		cout << list[0] << " max!" << endl;
+// 		maxlevel = 0;
+// 	}
+// 	else if ((list[1] > list[0]) && (list[1] > list[2]))
+// 	{
+// 		cout << list[1] << " max!" << endl;
+// 		maxlevel = 1;
+// 	}
+// 	else {
+// 		cout << list[2] << " max!" << endl;
+// 		maxlevel = 2;
+// 	}
+
+// 	//min
+// 	if ((list[0] < list[1]) && (list[0] < list[2])) {
+// 		cout << list[0] << " min!" << endl;
+// 		minlevel = 0;
+// 	}
+// 	else if ((list[1] < list[0]) && (list[1] < list[2]))
+// 	{
+// 		cout << list[1] << " min!" << endl;
+// 		minlevel = 1;
+// 	}
+// 	else {
+// 		cout << list[2] << " min!" << endl;
+// 		minlevel = 2;
+// 	}
+// 	sum = list[minlevel] + list[maxlevel];
+// 	if ((sum % 2) == 1) {
+// 		sum += 1;
+// 	}
+// 	avr = sum / 2;
+// 	cout << avr << " avr!";
+
+// 	return 0;
+
+// }
+
+#include <iostream> 
+
+using namespace std;
+int main() {
+	int m01 = 31;
+	int m02 = 28;
+	int m03 = 31;
+	int m04 = 30;
+	int m05 = 31;
+	int m06 = 30;
+	int m07 = 31;
+	int m08 = 31;
+	int m09 = 30;
+	int m10 = 31;
+	int m11 = 30;
+	int m12 = 31;
+
+	int month;
+	int day;
+	int result = 0;
+
+	cout << "month : ";
+	cin >> month;
+	cout << "day : ";
+	cin >> day;
+
+	switch (month) {
+	case 12:
+		result += m11;
+		if (day >= m12) {
+			day = m12;
+		}
+	case 11:
+		result += m10;
+		if (day >= m11) {
+			day = m11;
+		}
+	case 10:
+		result += m09; 
+		if (day >= m10) {
+			day = m10;
+		}
+	case 9:
+		result += m08;
+		if (day >= m09) {
+			day = m09;
+		}
+	case 8:
+		result += m07;
+		if (day >= m08) {
+			day = m08;
+		}
+	case 7:
+		result += m06;
+		if (day >= m07) {
+			day = m07;
+		}
+	case 6:
+		result += m05;
+		if (day >= m06) {
+			day = m06;
+		}
+	case 5:
+		result += m04;
+		if (day >= m05) {
+			day = m05;
+		}
+	case 4:
+		result += m03;
+		if (day >= m04) {
+			day = m04;
+		}
+	case 3:
+		result += m02;
+		if (day >= m03) {
+			day = m03;
+		}
+	case 2:
+		result += m01;
+		if (day >= m02) {
+			day = m02;
+		}
+	case 1:
+		result += 0;
+		if (day >= m01) {
+			day = m01;
+		}
+	}
+
+	result += day;
+
+	cout << result;
+	return 0;
+}
