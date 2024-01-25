@@ -9,23 +9,20 @@ int main()
 	int score = 0;
 	double avr = 0;
 	int count = 0;
-	while (1) {
+	do {
 		cout << "input : ";
 		cin >> score;
-		if (score > 0) {
-			sum += score;
-			count++;
-		}
-		else {
-			if (sum == 0) {
-				count = 1;
-			}
+		sum += score;
+		count++;
+		if (sum == 0) {
+			count = 2;
 			break;
 		}
+			
+	}while (score > 0);
 
-	}
 	cout << fixed << setprecision(2) << showpoint;
-	avr = static_cast<double>(sum) / count;
+	avr = static_cast<double>(sum) / count-1;
 	cout << "avr : " << avr;
 	return 0;
 }
