@@ -4,35 +4,18 @@
 #include <typeinfo>
 using namespace std;
 
+void process(int& a) { //값의 주소를 전달
+	a++;
+	cout << &a << endl;
+	return ;
+}
 int main() {
 
-	int input;
-	int count = 0;
-	srand(time(0));
-	int guess = rand() % 100;
-	while (1) {
-		count++;
-		cout << "input : ";
-		cin >> input;
-		if (input > 100 || input < 0) {
-			cout << "oops" << endl;
-			continue;
-		}
-		else {
-			if (input > guess) {
-				cout << "down!" << endl;
-			}
-			else if (input < guess) {
-				cout << "up!" << endl;
-			}
-			else {
-				cout << "good! : " << guess << endl;
-				break;
-			}
-		}
-
-	}
-	cout << count;
+	int test = 1;
+	cout << &test << endl;
+	process(test);
+	cout << test << endl; // 2출력
+	cout << &test << endl;
 
 	return 0;
 
