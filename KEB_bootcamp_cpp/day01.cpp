@@ -1,29 +1,35 @@
 #include <iostream>
-#include <cmath>
+#include <cstdlib>
+#include <ctime>
+#include <typeinfo>
 using namespace std;
 
 int main() {
 
-	const double PI = 3.14159265358979;
-	int n;
-	double s;
-	double peri = 0.0;
-	double area = 0.0;
-	do {
-		cout << "input n : ";
-		cin >> n;
-	} while (n < 4);
+	int input;
+	int count = 0;
+	srand(time(0));
+	int guess = rand() % 100;
+	while (1) {
+		count++;
+		cout << "input : ";
+		cin >> input;
+		if (input > 100 || input < 0) {
+			cout << "oops" << endl;
+			continue;
+		}
+		else {
+			if (input > guess) {
+				cout << "down!" << endl;
+			}
+			else if (input < guess) {
+				cout << "up!" << endl;
+			}
+			else {
+				cout << "good! : " << guess << endl;
+				break;
+			}
+		}
 
-	do {
-		cout << "input s : ";
-		cin >> s;
-	} while (s < 0.0);
-	peri = n * s;
-	area = (n * pow(s, 2)) / (4 * tan(PI / n));
-
-	cout << peri << endl;
-	cout << area << endl;
-
-	return 0;
-
+	}
 }
