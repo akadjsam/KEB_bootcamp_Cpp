@@ -4,19 +4,19 @@
 #include <typeinfo>
 using namespace std;
 
-void process(int& a) { //값의 주소를 전달
-	a++;
-	cout << &a << endl;
-	return ;
+int cal(double a, double b){ //함수 오버로딩
+	return a+b;
 }
+void cal(double& a){ 
+	a++;
+	return;
+}
+
 int main() {
 
-	int test = 1;
-	cout << &test << endl;
-	process(test);
-	cout << test << endl; // 2출력
-	cout << &test << endl;
-
-	return 0;
+	double test1 = 1.2;
+	double test2 = 1.2;
+	cal(test2);
+	cout << cal(test1,test2) << endl; 
 
 }
