@@ -1,29 +1,45 @@
-#include <iostream>
-#include <ctime>
-#include <cstdlib>
 #include "test.hpp"
-int Rectangle::count = 0;
+#include <iostream>
+#include <cassert>
 using namespace std;
 
-Rectangle::Rectangle(double len, double hgt) :length(len), height(hgt)
-{
-    count++;
-}
+int Account::base = 0;
+Account::Account(double bal):balance(bal){
+    if(bal<0.0){
+        cout << "it can't be minus!";
+        assert(false);
+    }
+    base ++;
+    accNumber = 100000 + base;
 
-Rectangle::Rectangle() :length(0.0), height(0.0)
-{
-    count++;
+    cout << "create_#" << accNumber << endl;
+    cout << "money $" << balance << endl;
 }
-
-Rectangle::Rectangle(const Rectangle& rect) : length(rect.length), height(rect.height)
-{
-    count++;
+Account::~Account(){
+    cout << "close_#" << accNumber << endl;
+    cout << "send $" << balance << endl;
 }
-
-Rectangle::~Rectangle()
-{
-    count--;
+void Account::checkBalance() const{
+     cout << "account : " << accNumber << endl;
+     cout << "checking money $" << balance << endl;
 }
-int Rectangle::getCount() {
-    return count;
+void Account::deposit(double amount){
+    if (amount>0.0){
+        balance += amount;
+        cout << "account : " << accNumber << endl;
+        cout << "add value : " << amount << endl;
+        cout << "changed money $" << balance << endl;
+    }
+    else{
+        cout << "stop!" << endl;
+    }
+}
+void Account::withdraw(double amount){
+    if(amount > balance){
+        amount = balance;
+    }
+    balance -= amount;
+    cout << "account : " << accNumber << endl;
+    cout << "minus value : " << amount << endl;
+    cout << "changed money $" << balance << endl;
 }
