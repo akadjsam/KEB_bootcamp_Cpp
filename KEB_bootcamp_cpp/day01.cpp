@@ -25,8 +25,8 @@ double Circle::getPerimeter() const{
 	return PI*2*radius;
 }
 
-void Circle::setRadius(double value){
-	radius = value;
+void Circle::setRadius(double radius){
+	this -> radius = radius;
 }
 
 
