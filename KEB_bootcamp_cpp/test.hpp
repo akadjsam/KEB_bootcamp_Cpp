@@ -1,12 +1,13 @@
-class RandomNumber{
-    private:
-        int low;
-        int high;
-        int value;
-    public:
-        RandomNumber(int low, int high);
-        ~RandomNumber();
-        RandomNumber(const RandomNumber& random) = delete; //합성 복사생성자 막기
-        void print() const;
+class Rectangle {
+private:
+    double length;
+    double height;
+    static int count;
+public:
+    Rectangle(double length, double height);
+    Rectangle();
+    ~Rectangle();
+    Rectangle(const Rectangle& rect);
+    static int getCount();
 };
 
