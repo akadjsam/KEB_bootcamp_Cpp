@@ -3,6 +3,9 @@
 #include <cassert>
 using namespace std;
 
+#ifndef TEST_H
+#define TEST_H
+
 int Account::base = 0;
 Account::Account(double bal):balance(bal){
     if(bal<0.0){
@@ -43,3 +46,5 @@ void Account::withdraw(double amount){
     cout << "minus value : " << amount << endl;
     cout << "changed money $" << balance << endl;
 }
+
+#endif
