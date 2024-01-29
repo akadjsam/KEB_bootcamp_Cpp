@@ -1,55 +1,40 @@
-// #include <iostream>
-// #include <cmath>
-// #include <cassert>
-// #include "test.hpp"
+#include <cmath>
+#include <iostream>
+#include "test.hpp"
 
-// using namespace std;
+using namespace std;
 
-// Time::Time(int h, int m, int s):hours(h), minutes(m), seconds(s)
-// {
-//     normalize();
-// }
+Point::Point():x(0), y(0)
+{
 
-// Time::Time():hours(0), minutes(0), seconds(0)
-// {
+}
+Point::Point(int a, int b) : x(a), y(b)
+{
+    print();
+}
+Point::Point(const Point& po) : x(po.x), y(po.y){
 
-// }
+}
+Point::~Point(){
 
-// Time::~Time()
-// {
+}
 
-// }
-// Time::Time(const Time& t):hours(t.hours), minutes(t.minutes), seconds(t.seconds)
-// {
+void Point::print() const{
+    if(x>0 && y>0){
+        cout << "점이 1사분면에 있습니다." << endl;;
+    }
+    else if(x>0 && y<0){
+        cout << "점이 2사분면에 있습니다." << endl;;
+    }
+    else if(x<0 && y<0){
+        cout << "점이 3사분면에 있습니다." << endl;;
+    }
+    else if(x>0 && y<0){
+        cout << "점이 4사분면에 있습니다." << endl;;
+    }
+    
+}
 
-// }
-
-// void Time::print() const
-// {
-//     cout << hours << ":" << minutes << ":" << seconds << endl;
-// }
-
-// void Time::tick()
-// {
-//     seconds ++;
-//     normalize();
-// }
-
-// void Time::normalize(){
-//     if((hours<0)||(minutes<0)||(seconds<0)){
-//         assert(false);
-//     }
-//     if(seconds > 59){
-//         int temp = seconds / 60;
-//         seconds = seconds % 60;
-//         minutes = temp + minutes;
-//     }
-//     if(minutes > 59){
-//         int temp = minutes / 60;
-//         minutes = minutes % 60;
-//         hours = temp + hours;
-//     }
-//     if(hours > 23){
-//         hours = hours % 24;
-//     }
-// }
+double Point::function(int a, int b){
+    return sqrt(pow(a - x,2) + pow(b - y, 2));
+}

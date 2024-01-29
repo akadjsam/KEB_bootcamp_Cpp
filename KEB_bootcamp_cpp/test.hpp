@@ -1,19 +1,19 @@
-// #ifndef TEST_H
-// #define TEST_H
-// class Time{
-//     private:
-//         int hours;
-//         int minutes;
-//         int seconds;
-//     public:
-//         Time(int h, int m, int s);
-//         Time();
-//         Time(const Time& t);
-//         ~Time();
-//         void print() const;
-//         void tick();
+#include <cmath>
+#ifndef TEST_H
+#define TEST_H
 
-//     private:
-//         void normalize();
-// };
-// #endif
+class Point{
+    private:
+        int x;
+        int y;
+    public:
+        Point();
+        Point(int a, int b);
+        Point(const Point& po);
+        ~Point();
+        void print() const;
+        double function(int a, int b);
+
+};
+
+#endif
