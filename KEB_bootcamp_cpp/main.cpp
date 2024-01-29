@@ -1,17 +1,44 @@
 #include <iostream>
 #include <ctime>
+#include <fstream>
+#include <iomanip>
 #include <cstdlib>
 #include "test.hpp"
 
 using namespace std;
 
 int main() {
-	Time time(4,5,27);
-	cout << "원래시간 : ";
-	time.print();
+	const int CAPACITY = 10;
+	int freq[CAPACITY] = {0};
+	ifstream integerFile;
 
-	for(int i = 0;i<143500;i++){
-		time.tick();
+	integerFile.open("test.dat");
+
+	if(!integerFile){
+		cout << "숫자 파일을 찾을 수 없습니다." << endl;
+		cout << "프로그램을 중단합니다.";
+		return 0;
 	}
-	time.print();
+
+	int data;
+	int size = 0;
+	while(integerFile >> data){
+		if (data>=0 && data <=9)
+		{
+			size ++;
+			freq[data]++;
+		}
+	}
+	integerFile.close();
+
+	cout << "파일 안에 " << size << "개의 유효한 데이터가 있습니다." << endl;
+	for(int i=0;i<10;i++){
+		cout << setw(3) << i << " ";
+		for(int j = 1;j<=freq[i];j++){
+			cout << "*";
+		}
+		cout << " " << freq[i] << endl;
+	}
+
+	return 0;
  }
