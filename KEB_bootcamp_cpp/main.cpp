@@ -8,37 +8,28 @@
 using namespace std;
 
 int main() {
-	const int CAPACITY = 10;
-	int freq[CAPACITY] = {0};
-	ifstream integerFile;
+	int count = 9;
+	int arr[20] = {3,2,3,8,7,8,0,6,2,5,4,2,9,3,1,1,4,4,7,9};
+	int histogram[9][20] = {0};
 
-	integerFile.open("test.dat");
+	for(int i = 0;i<9;i++){
+		for(int j=0;j<20;j++){
+			if(arr[j]>=count)
+				histogram[i][j] = 1;
+		}
+		count --;
+	}
 
-	if(!integerFile){
-		cout << "숫자 파일을 찾을 수 없습니다." << endl;
-		cout << "프로그램을 중단합니다.";
+	for(int i = 0;i<9;i++){
+		for(int j = 0;j<20;j++){
+			cout << histogram[i][j] << " ";
+		}
+		cout << endl;
+	}
+	cout << endl;
+	for(int i = 0;i<20;i++){
+		cout << arr[i] << " ";
+
+	}	
 		return 0;
-	}
-
-	int data;
-	int size = 0;
-	while(integerFile >> data){
-		if (data>=0 && data <=9)
-		{
-			size ++;
-			freq[data]++;
-		}
-	}
-	integerFile.close();
-
-	cout << "파일 안에 " << size << "개의 유효한 데이터가 있습니다." << endl;
-	for(int i=0;i<10;i++){
-		cout << setw(3) << i << " ";
-		for(int j = 1;j<=freq[i];j++){
-			cout << "*";
-		}
-		cout << " " << freq[i] << endl;
-	}
-
-	return 0;
- }
+}
