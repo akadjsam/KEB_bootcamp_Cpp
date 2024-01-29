@@ -1,13 +1,25 @@
-class Account{
+#ifndef TEST_H
+#define TEST_H
+class Fraction{
     private:
-        long accNumber;
-        double balance;
-        static int base;
-
+        int number;
+        int denom;
     public:
-        Account(double bal);
-        ~Account();
-        void checkBalance() const;
-        void deposit(double amount);
-        void withdraw(double amount);
+        Fraction(int num, int den);
+        Fraction();
+        Fraction(const Fraction& fract);
+        ~Fraction();
+
+        //접근자
+        int getNumber() const;
+        int getDenom() const;
+        void print() const;
+
+        void setNumber(int num);
+        void setDenom(int den);
+
+    private:
+        void normalize();
+        int gcd(int n, int m);
 };
+#endif
