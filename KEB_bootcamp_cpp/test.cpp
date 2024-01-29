@@ -1,69 +1,55 @@
-// #include <iostream>
-// #include <cmath>
-// #include <cassert>
-// #include "test.hpp"
+#include <iostream>
+#include <cmath>
+#include <cassert>
+#include "test.hpp"
 
-// using namespace std;
+using namespace std;
 
-// Fraction::Fraction():number(0),denom(1)
-// {
+Time::Time(int h, int m, int s):hours(h), minutes(m), seconds(s)
+{
+    normalize();
+}
 
-// }
+Time::Time():hours(0), minutes(0), seconds(0)
+{
 
-// Fraction::Fraction(int num, int den = 1) : number(num), denom(den)
-// {
-//     normalize();
-// }
-// Fraction::Fraction(const Fraction& fract):number(fract.number), denom(fract.denom)
-// {
+}
 
-// }
-// Fraction::~Fraction()
-// {
+Time::~Time()
+{
 
-// }
+}
+Time::Time(const Time& t):hours(t.hours), minutes(t.minutes), seconds(t.seconds)
+{
 
-// int Fraction::getNumber() const{
-//     return number;
-// }
+}
 
-// int Fraction::getDenom() const{
-//     return denom;
-// }
+void Time::print() const
+{
+    cout << hours << ":" << minutes << ":" << seconds << endl;
+}
 
-// void Fraction::print() const {
-//     cout << number << "/" << denom << endl;
-// }
+void Time::tick()
+{
+    seconds ++;
+    normalize();
+}
 
-// void Fraction::setNumber(int num){
-//     number = num;
-//     normalize();
-// }
-
-// void Fraction::setDenom(int den){
-//     denom = den;
-//     normalize();
-// }
-
-// void Fraction::normalize(){
-//     if(denom == 0){
-//         assert(false);
-//     }
-//     if(denom < 0){
-//         denom = -denom;
-//         number = - -number;
-//     }
-//     int divisor = gcd(abs(number),abs(denom));
-//     number = number / divisor;
-//     denom = denom / divisor;
-// }
-
-// int Fraction::gcd(int n, int m){
-//     int gcd = 1;
-//     for(int i=1;i<=n;i++){
-//         if(n%i==0 && m%i==0){
-//             gcd = i;
-//         }
-//     }
-//     return gcd;
-// }
+void Time::normalize(){
+    if((hours<0)||(minutes<0)||(seconds<0)){
+        assert(false);
+    }
+    if(seconds > 59){
+        int temp = seconds / 60;
+        seconds = seconds % 60;
+        minutes = temp + minutes;
+    }
+    if(minutes > 59){
+        int temp = minutes / 60;
+        minutes = minutes % 60;
+        hours = temp + hours;
+    }
+    if(hours > 23){
+        hours = hours % 24;
+    }
+}

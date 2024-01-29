@@ -1,25 +1,19 @@
-// #ifndef TEST_H
-// #define TEST_H
-// class Fraction{
-//     private:
-//         int number;
-//         int denom;
-//     public:
-//         Fraction(int num, int den);
-//         Fraction();
-//         Fraction(const Fraction& fract);
-//         ~Fraction();
+#ifndef TEST_H
+#define TEST_H
+class Time{
+    private:
+        int hours;
+        int minutes;
+        int seconds;
+    public:
+        Time(int h, int m, int s);
+        Time();
+        Time(const Time& t);
+        ~Time();
+        void print() const;
+        void tick();
 
-//         //접근자
-//         int getNumber() const;
-//         int getDenom() const;
-//         void print() const;
-
-//         void setNumber(int num);
-//         void setDenom(int den);
-
-//     private:
-//         void normalize();
-//         int gcd(int n, int m);
-// };
-// #endif
+    private:
+        void normalize();
+};
+#endif
