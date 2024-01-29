@@ -6,44 +6,21 @@
 #include "test.hpp"
 
 using namespace std;
+void insert(int arr[], int index, int number){
+	for(int i = 10;i>index;i++){
+		arr[i] = arr[i-1];
+	}
+	arr[index] = number;
 
-void row(const int origin[][4], int size, int arr[]);
-void col(const int origin[][4], int size, int arr[]);
+	for(int i = 0;i<10;i++){
+		cout << arr[i] << ", ";
+	}
+}
 
 int main() {
-	int origin[2][4] = {{0,1,2,3},{10,11,12,13}};
-	int arr[8] = {0};
-	row(origin,2,arr);
-	cout << endl;
-	col(origin,2,arr);
- }
+	int arr[10] = {12,7,8,11,45,22,78}; // 0~6 까지
 
-void row(const int origin[][4], int size, int arr[]){
-	int count = 0;
-	for(int i = 0;i<2;i++){
-		for(int j = 0;j<4;j++){
-			arr[count] = origin[i][j];
-			count ++;
-		}
-	}
+	insert(arr,2,40);
 
-	for(int i = 0;i<8;i++){
-		cout << arr[i] << " ";
-	}
-
- }
-
-void col(const int origin[][4], int size, int arr[]){
-	int count = 0;
-	for(int i = 0;i<4;i++){
-		for(int j = 0;j<2;j++){
-			arr[count] = origin[j][i];
-			count ++;
-		}
-	}
-
-	for(int i = 0;i<8;i++){
-		cout << arr[i] << " ";
-	}
-
- }
+	return 0;
+}
