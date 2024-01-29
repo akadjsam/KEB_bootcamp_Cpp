@@ -8,8 +8,5 @@
 using namespace std;
 
 int main() {
-	Point p1(-9,-5);
-	cout << p1.function(10,10);
-
-	return 0;
+	Employee e('a',27,9,150000);
  }

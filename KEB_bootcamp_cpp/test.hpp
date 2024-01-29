@@ -1,18 +1,29 @@
-#include <cmath>
 #ifndef TEST_H
 #define TEST_H
 
-class Point{
+class Employee{
     private:
-        int x;
-        int y;
+        char name;
+        int age;
+        int serviceYear;
+        int salary;
+
     public:
-        Point();
-        Point(int a, int b);
-        Point(const Point& po);
-        ~Point();
+        Employee();
+        Employee(char n, int a, int serv, int sal);
+        Employee(const Employee& em);
+        ~Employee();
         void print() const;
-        double function(int a, int b);
+
+        void setName(char n);
+        void setAge(int a);
+        void setServiceYear(int serv);
+        void setSalary(int sal);
+
+        char getName();
+        int getAge();
+        int getServiceYear();
+        int getSalary();
 
 };
 
