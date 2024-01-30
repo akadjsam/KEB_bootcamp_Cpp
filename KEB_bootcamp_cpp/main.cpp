@@ -1,11 +1,42 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main() {
-    int arr[5] = {1,2,3,4,5};
+    int maxPower = 10;
+    int n;
 
-    for(int i =0;i<5;i++){
-        cout << arr + i << endl; //배열의 주소를 출력, int형으로 배열이 선언되었기 때문에 4byte 단위로 주소값이 출력된다.
+    do{
+        cout << "input n : ";
+        cin >> n;
+    }while(n<0||n>maxPower);
+
+    int** pascal = new int*[n+1];
+    for(int i=0;i<n+1;i++){
+        pascal[i] = new int[i];
     }
+    for(int i = 0;i<=n;i++){
+        for(int j=0; j<i+1 ;j++){
+            if(j==0||i==j){
+                pascal[i][j] = 1;
+            }
+            else{
+                pascal[i][j] = pascal[i-1][j-1] + pascal[i-1][j];
+            }
+        }
+    }
+    cout << n << "의 이항계수";
+
+    for(int j=0;j<=n;j++){
+        cout << setw(5) << pascal[n][j];
+    }
+    cout << endl;
+
+    for(int i=0;i<n;i++){
+        delete pascal[i];
+    }
+
+    delete[] pascal;
+
     return 0;
 }
