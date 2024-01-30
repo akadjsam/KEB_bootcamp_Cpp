@@ -2,41 +2,19 @@
 #include <iomanip>
 using namespace std;
 
+void swap(int* first, int* second);
+
 int main() {
-    int maxPower = 10;
-    int n;
+    int x = 10;
+    int y = 20;
+    swap(x,y);
+    cout << x << endl;
+    cout << y;
+}
 
-    do{
-        cout << "input n : ";
-        cin >> n;
-    }while(n<0||n>maxPower);
-
-    int** pascal = new int*[n+1];
-    for(int i=0;i<n+1;i++){
-        pascal[i] = new int[i];
-    }
-    for(int i = 0;i<=n;i++){
-        for(int j=0; j<i+1 ;j++){
-            if(j==0||i==j){
-                pascal[i][j] = 1;
-            }
-            else{
-                pascal[i][j] = pascal[i-1][j-1] + pascal[i-1][j];
-            }
-        }
-    }
-    cout << n << "의 이항계수";
-
-    for(int j=0;j<=n;j++){
-        cout << setw(5) << pascal[n][j];
-    }
-    cout << endl;
-
-    for(int i=0;i<n;i++){
-        delete pascal[i];
-    }
-
-    delete[] pascal;
-
-    return 0;
+void swap(int* first, int* second){
+    int temp = 0;
+    temp = *first;
+    *first = *second;
+    *second = temp;
 }
