@@ -2,15 +2,10 @@
 using namespace std;
 
 int main() {
-    int num1 = 10;
-    int* num2 = &num1; //num1의 주소값을 num2에 할당
+    int arr[5] = {1,2,3,4,5};
 
-    cout << num1 << endl; //10
-    cout << &num1 << endl; //num1의 주소
-
-    cout << num2 << endl; //num1의 주소
-    cout << *num2 << endl; //10
-    cout << &num2 << endl; //num2의 주소
-
+    for(int i =0;i<5;i++){
+        cout << arr + i << endl; //배열의 주소를 출력, int형으로 배열이 선언되었기 때문에 4byte 단위로 주소값이 출력된다.
+    }
     return 0;
 }
