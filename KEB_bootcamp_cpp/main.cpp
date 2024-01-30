@@ -2,19 +2,25 @@
 #include <iomanip>
 using namespace std;
 
-void swap(int* first, int* second);
+void reverse(int*, int);
 
 int main() {
-    int x = 10;
-    int y = 20;
-    swap(x,y);
-    cout << x << endl;
-    cout << y;
+    const int constsize = 5;
+    int arr[constsize] = {1,2,3,4,5};
+    reverse(arr,constsize);
+    for(int i=0;i<constsize;i++){
+        cout<< *(arr+i);
+    }
 }
 
-void swap(int* first, int* second){
-    int temp = 0;
-    temp = *first;
-    *first = *second;
-    *second = temp;
+void reverse(int* pArr, int size){
+    int i=0;
+    int j = size-1;
+    while(i<size/2){
+        int temp = *(pArr + i);
+        *(pArr + i) = *(pArr + j);
+        *(pArr + j) = temp;
+        i++;
+        j--;
+    }
 }
