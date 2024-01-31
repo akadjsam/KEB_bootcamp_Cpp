@@ -1,53 +1,72 @@
-// #include <iostream>
-// #include "test.hpp"
-// using namespace std;
+#include <iostream>
+#include <fstream>
+#include <cassert>
+#include "test.hpp"
+#include <iomanip>
+using namespace std;
+Matrix::Matrix(int row, int col) :rowSize(row), colSize(col)
+{
+    ptr = new int* [rowSize];
+    for (int i = 0; i < rowSize; i++) {
+        ptr[i] = new int[colSize];
+    }
+}
+Matrix::~Matrix()
+{
+    for (int i = 0; i < rowSize; i++) {
+        delete[] ptr[i];
+    }
+    delete[] ptr;
+}
 
-// Employee::Employee():name('a'),age(0),serviceYear(0),salary(0){
+void Matrix::setup() {
+    for (int i = 0; i < rowSize; i++) {
+        for (int j = 0; j < colSize; j++) {
+            ptr[i][j] = rand() % 5 + 1;
+        }
+    }
+}
+void Matrix::add(const Matrix& second, Matrix& result) const
+{
+    assert(second.rowSize == rowSize && second.colSize == colSize);
+    assert(result.rowSize == rowSize && result.colSize == colSize);
 
-// }
+    for (int i = 0; i < rowSize; i++) {
+        for (int j = 0; j < second.colSize; j++) {
+            result.ptr[i][j] = ptr[i][j] + second.ptr[i][j];
+        }
+    }
+}
+void Matrix::sub(const Matrix& second, Matrix& result) const {
+    assert(second.rowSize == rowSize && second.colSize == colSize);
+    assert(result.rowSize == rowSize && result.colSize == colSize);
 
-// Employee::Employee(char n, int a, int serv, int sal):name(n),age(a),serviceYear(serv),salary(sal){
-//     print();
-// }
+    for (int i = 0; i < rowSize; i++) {
+        for (int j = 0; j < second.colSize; j++) {
+            result.ptr[i][j] = ptr[i][j] - second.ptr[i][j];
+        }
+    }
+}
 
-// Employee::Employee(const Employee& em):name(em.name),age(em.age),serviceYear(em.serviceYear),salary(em.salary){
+void Matrix::mul(const Matrix& second, Matrix& result) const {
+    assert(colSize == second.rowSize);
+    assert(rowSize == result.rowSize);
+    assert(second.colSize == result.colSize);
 
-// }
-// Employee::~Employee(){
-
-// }
-// void Employee::print() const {
-//     cout << "name : " << name << endl;
-//     cout << "age : " << age << endl;
-//     cout << "service : " << serviceYear << endl;
-//     cout << "salary : " << salary << endl;
-// }
-
-// void Employee::setName(char n){
-//     name = n;
-// }
-
-// void Employee::setAge(int n){
-//     age = n;
-// }
-
-// void Employee::setServiceYear(int n){
-//     serviceYear = n;
-// }
-
-// void Employee::setSalary(int n){
-//     salary = n;
-// }
-
-// char Employee::getName(){
-//     return name;
-// }
-// int Employee::getAge(){
-//     return age;
-// }
-// int Employee::getServiceYear(){
-//     return serviceYear;
-// }
-// int Employee::getSalary(){
-//     return salary;
-// }
+    for (int i = 0; i < rowSize; i++) {
+        for (int j = 0; j < second.colSize; j++) {
+            result.ptr[i][j] = 0;
+            for (int k = 0; k < colSize; k++) {
+                result.ptr[i][j] += ptr[i][k] * second.ptr[k][j];
+            }
+        }
+    }
+}
+void Matrix::print() const {
+    for (int i = 0; i < rowSize; i++) {
+        for (int j = 0; j < colSize; j++) {
+            cout << setw(5) << ptr[i][j];
+        }
+        cout << endl;
+    }
+}

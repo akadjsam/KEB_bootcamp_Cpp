@@ -1,24 +1,38 @@
 #include <iostream>
 #include <iomanip>
+#include "test.hpp"
 using namespace std;
 
-int main(){
-    int size;
-    int* pArr;
+int main() {
 
-    do{
-        cout << "input : ";
-        cin >> size;
-    }while(size<=0);
-    pArr = new int[size];
-    for(int i=0;i<size;i++){
-        cout << "input value : ";
-        cin >> *(pArr+i);
-    }
+    Matrix m1(3, 4);
+    m1.setup();
+    m1.print();
 
-    for(int i=0;i<size;i++){
-        cout << *(pArr + i) << ' ';
-    }
-    delete[] pArr;
+    cout << endl;
+    Matrix m2(3, 4);
+    m2.setup();
+    m2.print();
+
+    cout << endl;
+    Matrix m3(4, 2);
+    m3.setup();
+    m3.print();
+
+    cout << endl;
+    Matrix addR(3, 4);
+    m1.add(m2, addR);
+    addR.print();
+
+    cout << endl;
+    Matrix subR(3, 4);
+    m1.sub(m2, subR);
+    subR.print();
+
+    cout << endl;
+    Matrix mulR(3, 2);
+    m1.mul(m3, mulR);
+    mulR.print();
     return 0;
+
 }

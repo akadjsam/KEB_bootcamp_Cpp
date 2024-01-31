@@ -1,30 +1,21 @@
-// #ifndef TEST_H
-// #define TEST_H
+#ifndef TEST_H
+#define TEST_H
+#include <iostream>
+#include <fstream>
 
-// class Employee{
-//     private:
-//         char name;
-//         int age;
-//         int serviceYear;
-//         int salary;
+class Matrix {
+private:
+    int rowSize;
+    int colSize;
+    int** ptr;
+public:
+    Matrix(int row, int col);
+    ~Matrix();
+    void setup();
+    void add(const Matrix& second, Matrix& result) const;
+    void sub(const Matrix& second, Matrix& result) const;
+    void mul(const Matrix& second, Matrix& result) const;
+    void print() const;
+};
 
-//     public:
-//         Employee();
-//         Employee(char n, int a, int serv, int sal);
-//         Employee(const Employee& em);
-//         ~Employee();
-//         void print() const;
-
-//         void setName(char n);
-//         void setAge(int a);
-//         void setServiceYear(int serv);
-//         void setSalary(int sal);
-
-//         char getName();
-//         int getAge();
-//         int getServiceYear();
-//         int getSalary();
-
-// };
-
-// #endif
+#endif
